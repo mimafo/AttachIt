@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4CE6FA4B1F69D78E000075AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6FA4A1F69D78E000075AA /* AppDelegate.swift */; };
-		4CE6FA4D1F69D78E000075AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6FA4C1F69D78E000075AA /* ViewController.swift */; };
+		4CE6FA4D1F69D78E000075AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6FA4C1F69D78E000075AA /* LoginViewController.swift */; };
 		4CE6FA501F69D78E000075AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE6FA4E1F69D78E000075AA /* Main.storyboard */; };
 		4CE6FA521F69D78E000075AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CE6FA511F69D78E000075AA /* Assets.xcassets */; };
 		4CE6FA551F69D78E000075AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE6FA531F69D78E000075AA /* LaunchScreen.storyboard */; };
 		4CE6FA601F69D78E000075AA /* com_powerschool_attachitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6FA5F1F69D78E000075AA /* com_powerschool_attachitTests.swift */; };
+		4CE6FA6D1F69DCF8000075AA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6FA6C1F69DCF8000075AA /* MainViewController.swift */; };
+		4CE6FA701F69E4C0000075AA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6FA6F1F69E4C0000075AA /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +30,7 @@
 /* Begin PBXFileReference section */
 		4CE6FA471F69D78E000075AA /* com.powerschool.attachit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.powerschool.attachit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE6FA4A1F69D78E000075AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4CE6FA4C1F69D78E000075AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CE6FA4C1F69D78E000075AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4CE6FA4F1F69D78E000075AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CE6FA511F69D78E000075AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CE6FA541F69D78E000075AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		4CE6FA5B1F69D78E000075AA /* com.powerschool.attachitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = com.powerschool.attachitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE6FA5F1F69D78E000075AA /* com_powerschool_attachitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = com_powerschool_attachitTests.swift; sourceTree = "<group>"; };
 		4CE6FA611F69D78E000075AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CE6FA6C1F69DCF8000075AA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4CE6FA6F1F69E4C0000075AA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				4CE6FA4A1F69D78E000075AA /* AppDelegate.swift */,
-				4CE6FA4C1F69D78E000075AA /* ViewController.swift */,
-				4CE6FA4E1F69D78E000075AA /* Main.storyboard */,
+				4CE6FA6E1F69E4A5000075AA /* Extensions */,
+				4CE6FA6A1F69D840000075AA /* View Controllers */,
+				4CE6FA6B1F69D866000075AA /* Views */,
 				4CE6FA511F69D78E000075AA /* Assets.xcassets */,
 				4CE6FA531F69D78E000075AA /* LaunchScreen.storyboard */,
 				4CE6FA561F69D78E000075AA /* Info.plist */,
@@ -94,6 +99,31 @@
 				4CE6FA611F69D78E000075AA /* Info.plist */,
 			);
 			path = com.powerschool.attachitTests;
+			sourceTree = "<group>";
+		};
+		4CE6FA6A1F69D840000075AA /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CE6FA4C1F69D78E000075AA /* LoginViewController.swift */,
+				4CE6FA6C1F69DCF8000075AA /* MainViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4CE6FA6B1F69D866000075AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CE6FA4E1F69D78E000075AA /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4CE6FA6E1F69E4A5000075AA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4CE6FA6F1F69E4C0000075AA /* UIViewControllerExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CE6FA4D1F69D78E000075AA /* ViewController.swift in Sources */,
+				4CE6FA701F69E4C0000075AA /* UIViewControllerExtension.swift in Sources */,
+				4CE6FA6D1F69DCF8000075AA /* MainViewController.swift in Sources */,
+				4CE6FA4D1F69D78E000075AA /* LoginViewController.swift in Sources */,
 				4CE6FA4B1F69D78E000075AA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +444,7 @@
 				4CE6FA661F69D78E000075AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CE6FA671F69D78E000075AA /* Build configuration list for PBXNativeTarget "com.powerschool.attachitTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +453,7 @@
 				4CE6FA691F69D78E000075AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
