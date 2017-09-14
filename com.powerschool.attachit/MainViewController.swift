@@ -52,7 +52,9 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.currentAttachmentType = self.attachmentTypes[row]
     }
     
-    
-    
+    //MARK: Action Handlers
+    @IBAction func nextPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "DataSegue", sender: self)
+    }
     
 }

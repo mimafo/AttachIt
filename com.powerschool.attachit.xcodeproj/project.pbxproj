@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CD3418F1F69F556003D5F0F /* DataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3418E1F69F556003D5F0F /* DataTableViewController.swift */; };
+		4CD341921F69F86A003D5F0F /* AttachData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD341911F69F86A003D5F0F /* AttachData.swift */; };
+		4CD341961F6A38C9003D5F0F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD341951F6A38C9003D5F0F /* ImageViewController.swift */; };
 		4CE6FA4B1F69D78E000075AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6FA4A1F69D78E000075AA /* AppDelegate.swift */; };
 		4CE6FA4D1F69D78E000075AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6FA4C1F69D78E000075AA /* LoginViewController.swift */; };
 		4CE6FA501F69D78E000075AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE6FA4E1F69D78E000075AA /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4CD3418E1F69F556003D5F0F /* DataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewController.swift; sourceTree = "<group>"; };
+		4CD341911F69F86A003D5F0F /* AttachData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachData.swift; sourceTree = "<group>"; };
+		4CD341951F6A38C9003D5F0F /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		4CE6FA471F69D78E000075AA /* com.powerschool.attachit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.powerschool.attachit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE6FA4A1F69D78E000075AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CE6FA4C1F69D78E000075AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CD341901F69F841003D5F0F /* Data Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4CD341911F69F86A003D5F0F /* AttachData.swift */,
+			);
+			name = "Data Objects";
+			sourceTree = "<group>";
+		};
 		4CE6FA3E1F69D78E000075AA = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +95,7 @@
 		4CE6FA491F69D78E000075AA /* com.powerschool.attachit */ = {
 			isa = PBXGroup;
 			children = (
+				4CD341901F69F841003D5F0F /* Data Objects */,
 				4CE6FA4A1F69D78E000075AA /* AppDelegate.swift */,
 				4CE6FA6E1F69E4A5000075AA /* Extensions */,
 				4CE6FA6A1F69D840000075AA /* View Controllers */,
@@ -106,6 +121,8 @@
 			children = (
 				4CE6FA4C1F69D78E000075AA /* LoginViewController.swift */,
 				4CE6FA6C1F69DCF8000075AA /* MainViewController.swift */,
+				4CD3418E1F69F556003D5F0F /* DataTableViewController.swift */,
+				4CD341951F6A38C9003D5F0F /* ImageViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -231,9 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CD3418F1F69F556003D5F0F /* DataTableViewController.swift in Sources */,
 				4CE6FA701F69E4C0000075AA /* UIViewControllerExtension.swift in Sources */,
 				4CE6FA6D1F69DCF8000075AA /* MainViewController.swift in Sources */,
+				4CD341961F6A38C9003D5F0F /* ImageViewController.swift in Sources */,
 				4CE6FA4D1F69D78E000075AA /* LoginViewController.swift in Sources */,
+				4CD341921F69F86A003D5F0F /* AttachData.swift in Sources */,
 				4CE6FA4B1F69D78E000075AA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

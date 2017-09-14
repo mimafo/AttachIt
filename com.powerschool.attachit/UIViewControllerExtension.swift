@@ -18,12 +18,30 @@ extension UIViewController {
         return self.appDelegate.username
     }
     
+    var selectedAttachData: AttachData? {
+        get {
+            return self.appDelegate.selectedAttachData
+        }
+        set {
+            self.appDelegate.selectedAttachData = newValue
+        }
+    }
+    
     var currentAttachmentType: String? {
         get {
             return self.appDelegate.currentAttachmentType
         }
         set {
             self.appDelegate.currentAttachmentType = newValue
+        }
+    }
+    
+    var selectedImage: UIImage? {
+        get {
+            return self.appDelegate.selectedImage
+        }
+        set {
+            self.appDelegate.selectedImage = newValue
         }
     }
     
