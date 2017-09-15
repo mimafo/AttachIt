@@ -10,6 +10,9 @@ import UIKit
 
 class DataTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    //Outlets
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     //data properties
     var attachData = AttachData.dummyAttachData()
     var alertController: UIAlertController {
@@ -43,6 +46,7 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
         
         //initialize the selectedImage to nil
         self.selectedImage = nil
+        self.addButton.isEnabled = false
         
     }
     
@@ -50,6 +54,8 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
         super.viewDidAppear(animated)
         if let cell = self.selectedCell {
             cell.accessoryType = .none
+            self.addButton.isEnabled = false
+            self.selectedCell = nil
         }
     }
     
@@ -95,6 +101,7 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
                 oldCell.accessoryType = .none
             }
             self.selectedCell = cell
+            self.addButton.isEnabled = true
         }
     }
     
@@ -128,6 +135,9 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
     //MARK: Action Handlers
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
         
+        if self.selectedCell == nil {
+            return
+        }
         self.navigationController!.present(self.alertController, animated: true, completion: nil)
         
     }
