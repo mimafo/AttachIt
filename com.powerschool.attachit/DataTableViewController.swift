@@ -30,6 +30,8 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
         return ac
     }
     
+    var selectedCell: UITableViewCell?
+    
     //MARK: UIViewController functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,13 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
         //initialize the selectedImage to nil
         self.selectedImage = nil
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let cell = self.selectedCell {
+            cell.accessoryType = .none
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,6 +89,13 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = self.attachData[indexPath.row]
         self.selectedAttachData = data
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .checkmark
+            if let oldCell = self.selectedCell {
+                oldCell.accessoryType = .none
+            }
+            self.selectedCell = cell
+        }
     }
     
     //MARK: UIImagePickerControllerDelegate methods

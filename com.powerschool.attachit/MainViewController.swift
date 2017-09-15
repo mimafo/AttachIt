@@ -11,7 +11,8 @@ import UIKit
 class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     //Class variables
-    let attachmentTypes = ["Employee", "Purchase Order", "Invoice", "Vendor"]
+    //let attachmentTypes = ["Employee", "Purchase Order", "Invoice", "Vendor"]
+    var attachmentTypes: [String]?
     
     //Outlets
     @IBOutlet weak var attachTypePicker: UIPickerView!
@@ -23,6 +24,13 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             //Do stuff with the username
         } else {
             self.performSegue(withIdentifier: "LoginSegue", sender: self)
+        }
+        
+        AttachAPIContoller().getAttachTypes { (types) in
+            performUIUpdatesOnMain {
+                self.attachmentTypes = types
+                self.attachTypePicker.reloadAllComponents()
+            }
         }
         
         self.attachTypePicker.dataSource = self
@@ -40,16 +48,26 @@ class MainViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.attachmentTypes.count
+        if let types = self.attachmentTypes {
+            return types.count
+        }
+        return 0
     }
     
     //MARK: Delegates
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.attachmentTypes[row]
+        if let types = self.attachmentTypes {
+            return types[row]
+        }
+        return nil
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.currentAttachmentType = self.attachmentTypes[row]
+        if let types = self.attachmentTypes {
+            if !types.isEmpty {
+                self.currentAttachmentType = types[row]
+            }
+        }
     }
     
     //MARK: Action Handlers

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C782ABB1F6B13D6000E2627 /* AttachAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C782ABA1F6B13D6000E2627 /* AttachAPIController.swift */; };
+		4C782ABD1F6B1562000E2627 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C782ABC1F6B1562000E2627 /* GCDBlackBox.swift */; };
+		4C782ABF1F6B15C1000E2627 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C782ABE1F6B15C1000E2627 /* NetworkClient.swift */; };
+		4C782AC11F6B2E5B000E2627 /* AttachTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C782AC01F6B2E5B000E2627 /* AttachTypeViewController.swift */; };
+		4C782AC31F6B3A0F000E2627 /* DrawImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C782AC21F6B3A0F000E2627 /* DrawImageView.swift */; };
 		4CD3418F1F69F556003D5F0F /* DataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3418E1F69F556003D5F0F /* DataTableViewController.swift */; };
 		4CD341921F69F86A003D5F0F /* AttachData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD341911F69F86A003D5F0F /* AttachData.swift */; };
 		4CD341961F6A38C9003D5F0F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD341951F6A38C9003D5F0F /* ImageViewController.swift */; };
@@ -31,6 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C782ABA1F6B13D6000E2627 /* AttachAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachAPIController.swift; sourceTree = "<group>"; };
+		4C782ABC1F6B1562000E2627 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		4C782ABE1F6B15C1000E2627 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		4C782AC01F6B2E5B000E2627 /* AttachTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachTypeViewController.swift; sourceTree = "<group>"; };
+		4C782AC21F6B3A0F000E2627 /* DrawImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawImageView.swift; sourceTree = "<group>"; };
 		4CD3418E1F69F556003D5F0F /* DataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewController.swift; sourceTree = "<group>"; };
 		4CD341911F69F86A003D5F0F /* AttachData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachData.swift; sourceTree = "<group>"; };
 		4CD341951F6A38C9003D5F0F /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C782AB91F6B1390000E2627 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4C782ABA1F6B13D6000E2627 /* AttachAPIController.swift */,
+				4C782ABE1F6B15C1000E2627 /* NetworkClient.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		4CD341901F69F841003D5F0F /* Data Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,14 +114,16 @@
 		4CE6FA491F69D78E000075AA /* com.powerschool.attachit */ = {
 			isa = PBXGroup;
 			children = (
-				4CD341901F69F841003D5F0F /* Data Objects */,
 				4CE6FA4A1F69D78E000075AA /* AppDelegate.swift */,
+				4C782AB91F6B1390000E2627 /* Networking */,
+				4CD341901F69F841003D5F0F /* Data Objects */,
 				4CE6FA6E1F69E4A5000075AA /* Extensions */,
 				4CE6FA6A1F69D840000075AA /* View Controllers */,
 				4CE6FA6B1F69D866000075AA /* Views */,
 				4CE6FA511F69D78E000075AA /* Assets.xcassets */,
 				4CE6FA531F69D78E000075AA /* LaunchScreen.storyboard */,
 				4CE6FA561F69D78E000075AA /* Info.plist */,
+				4C782ABC1F6B1562000E2627 /* GCDBlackBox.swift */,
 			);
 			path = com.powerschool.attachit;
 			sourceTree = "<group>";
@@ -123,6 +144,7 @@
 				4CE6FA6C1F69DCF8000075AA /* MainViewController.swift */,
 				4CD3418E1F69F556003D5F0F /* DataTableViewController.swift */,
 				4CD341951F6A38C9003D5F0F /* ImageViewController.swift */,
+				4C782AC01F6B2E5B000E2627 /* AttachTypeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -131,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				4CE6FA4E1F69D78E000075AA /* Main.storyboard */,
+				4C782AC21F6B3A0F000E2627 /* DrawImageView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -249,12 +272,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CD3418F1F69F556003D5F0F /* DataTableViewController.swift in Sources */,
+				4C782ABF1F6B15C1000E2627 /* NetworkClient.swift in Sources */,
 				4CE6FA701F69E4C0000075AA /* UIViewControllerExtension.swift in Sources */,
 				4CE6FA6D1F69DCF8000075AA /* MainViewController.swift in Sources */,
 				4CD341961F6A38C9003D5F0F /* ImageViewController.swift in Sources */,
 				4CE6FA4D1F69D78E000075AA /* LoginViewController.swift in Sources */,
+				4C782AC11F6B2E5B000E2627 /* AttachTypeViewController.swift in Sources */,
 				4CD341921F69F86A003D5F0F /* AttachData.swift in Sources */,
 				4CE6FA4B1F69D78E000075AA /* AppDelegate.swift in Sources */,
+				4C782ABD1F6B1562000E2627 /* GCDBlackBox.swift in Sources */,
+				4C782AC31F6B3A0F000E2627 /* DrawImageView.swift in Sources */,
+				4C782ABB1F6B13D6000E2627 /* AttachAPIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
