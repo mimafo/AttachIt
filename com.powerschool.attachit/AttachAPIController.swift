@@ -10,8 +10,12 @@ import Foundation
 
 class AttachAPIContoller : NetworkClient {
     
+    //let attachTypeURL = "http://bth-trumbbra-d.bethlehem.sungardps.lcl:3000/categories"
+    let attachTypeURL = "https://efpwf51aws.efinanceplus.demo.powerschool.com/eFP5.1/Hackathon/attachtype.json"
+    let employeeURL = "https://efpwf51aws.efinanceplus.demo.powerschool.com/eFP5.1/Hackathon/employees.json"
+    let vendorURL = "https://efpwf51aws.efinanceplus.demo.powerschool.com/eFP5.1/Hackathon/vendors.json"
+    let purchaseURL = "https://efpwf51aws.efinanceplus.demo.powerschool.com/eFP5.1/Hackathon/purchase.json"
     
-    let attachTypeURL = "http://bth-trumbbra-d.bethlehem.sungardps.lcl:3000/categories"
     
     //MARK: Build request endpoints
     func getAttachTypes(completionHandler: @escaping (_ types: [String]?) -> Void) {
@@ -20,10 +24,7 @@ class AttachAPIContoller : NetworkClient {
         
         //Set request values for POST
         request.httpMethod = "GET"
-        //request.addValue("application/json", forHTTPHeaderField: "Accept")
-        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        //return self.executeRequest(request, domain: "getCatagories", completionHandler:
+
         let task = self.executeRequest(request: request, domain: "getCategories") { (results, error) in
             
             guard let attachTypeList = results as? [AnyObject] else {
@@ -45,5 +46,44 @@ class AttachAPIContoller : NetworkClient {
 
         
     }
+    
+    func getAttachDataList(attachType: String, completionHandler: @escaping (_ dataList: [AttachData]?) -> Void) {
+        
+        var getUrl = self.employeeURL
+        if attachType.contains("EMPLOYEE") {
+            getUrl = self.employeeURL
+        } else if attachType.contains("VENDOR") {
+            getUrl = self.vendorURL
+        } else if attachType == "PO" {
+            getUrl = self.purchaseURL
+        }
+        
+        var request = URLRequest(url: URL(string:getUrl)!)
+        
+        //Set request values for POST
+        request.httpMethod = "GET"
+        
+        let task = self.executeRequest(request: request, domain: "getData") { (results, error) in
+            
+            guard let responseList = results as? [AnyObject] else {
+                completionHandler(nil)
+                return
+            }
+            var attachData = [AttachData]()
+            
+            for attachStuff in responseList {
+                if let attachStuff = attachStuff as? [String:Any] {
+                    attachData.append(AttachData(data: attachStuff))
+                }
+            }
+            completionHandler(attachData)
+            
+        }
+        print("Task state is \(task.state)")
+        
+        
+    }
+    
+
     
 }

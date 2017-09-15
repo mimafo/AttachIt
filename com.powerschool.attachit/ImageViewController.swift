@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageViewController: UIViewController, UITextFieldDelegate {
+class ImageViewController: UIViewController {
     
     //class variables
     var lastPoint = CGPoint.zero
@@ -20,7 +20,6 @@ class ImageViewController: UIViewController, UITextFieldDelegate {
     
     //Outlets
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleField: UITextField!
 
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var annotateButton: UIBarButtonItem!
@@ -33,6 +32,9 @@ class ImageViewController: UIViewController, UITextFieldDelegate {
             self.imageView.image = image
         }
         self.undoButton.isEnabled = false
+        if let data = self.selectedAttachData {
+            self.title = data.title
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,7 +43,6 @@ class ImageViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func annotatePressed(_ sender: Any) {
-        self.titleField.resignFirstResponder()
         self.annotateButton.isEnabled = false
         self.undoButton.isEnabled = true
         self.allowDraw = true
@@ -49,7 +50,6 @@ class ImageViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func undoPressed(_ sender: Any) {
-        self.titleField.resignFirstResponder()
         self.annotateButton.isEnabled = true
         self.undoButton.isEnabled = false
         self.allowDraw = false
@@ -61,7 +61,6 @@ class ImageViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func savePressed(_ sender: Any) {
-        self.titleField.resignFirstResponder()
         let attachImage = self.generateAttachmentImage()
         self.imageView.image = attachImage
         //TO DO: Send the data
@@ -70,38 +69,11 @@ class ImageViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    //MARK: UITextDelegate Methods
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //When return is pressed, dismiss the keyboard
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    //MARK: keyboard control methods
-    func subscribeToKeyboardNotifications() {
-        
-        NotificationCenter.default.addObserver(self, selector: Selector(("keyboardWillShow:")), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: Selector(("keyboardWillHide:")), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-    }
-    
-    func unsubscribeFromKeyboardNotifications() {
-        
-        NotificationCenter.default.removeObserver(self, name:
-            NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        NotificationCenter.default.removeObserver(self, name:
-            NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-    }
-    
     //MARK: Helper methods
     func generateAttachmentImage() -> UIImage {
         
         //Hide stuff
         self.bottomToolBar.isHidden = true
-        self.titleField.isHidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -113,7 +85,6 @@ class ImageViewController: UIViewController, UITextFieldDelegate {
         
         //Show stuff
         self.bottomToolBar.isHidden = false
-        self.titleField.isHidden = false
         
         return attachImage
     }

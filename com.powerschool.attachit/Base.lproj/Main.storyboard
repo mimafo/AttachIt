@@ -245,14 +245,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Attachment Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H9t-qp-3A3">
-                                <rect key="frame" x="20" y="72" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DkR-N7-WWP" customClass="DrawImageView" customModule="com_powerschool_attachit" customModuleProvider="target">
-                                <rect key="frame" x="20" y="110" width="366" height="516"/>
+                                <rect key="frame" x="20" y="72" width="366" height="592"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXc-EZ-r3t">
                                 <rect key="frame" x="0.0" y="648" width="414" height="44"/>
@@ -278,16 +272,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="H9t-qp-3A3" firstAttribute="leading" secondItem="OQF-Dl-rCm" secondAttribute="leadingMargin" id="DtX-fg-XoT"/>
-                            <constraint firstItem="DkR-N7-WWP" firstAttribute="leading" secondItem="H9t-qp-3A3" secondAttribute="leading" id="ON9-OT-Jzc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DkR-N7-WWP" secondAttribute="trailing" constant="8" id="OhA-15-3AE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DkR-N7-WWP" secondAttribute="trailing" constant="8" id="QrY-Mf-oLW"/>
                             <constraint firstItem="ZXc-EZ-r3t" firstAttribute="top" secondItem="Bsx-d2-9cI" secondAttribute="top" constant="-44" id="XW9-xB-fi2"/>
-                            <constraint firstItem="H9t-qp-3A3" firstAttribute="centerX" secondItem="ZXc-EZ-r3t" secondAttribute="centerX" id="aIr-Mc-WiE"/>
+                            <constraint firstItem="DkR-N7-WWP" firstAttribute="centerY" secondItem="OQF-Dl-rCm" secondAttribute="centerY" id="Y90-mt-TrO"/>
                             <constraint firstItem="ZXc-EZ-r3t" firstAttribute="leading" secondItem="OQF-Dl-rCm" secondAttribute="leading" id="i8p-gm-7YX"/>
+                            <constraint firstItem="DkR-N7-WWP" firstAttribute="top" secondItem="XQX-EQ-2ft" secondAttribute="bottom" constant="8" symbolic="YES" id="iFZ-z5-6hY"/>
                             <constraint firstAttribute="trailing" secondItem="ZXc-EZ-r3t" secondAttribute="trailing" id="kPd-0m-NdR"/>
-                            <constraint firstItem="DkR-N7-WWP" firstAttribute="top" secondItem="H9t-qp-3A3" secondAttribute="bottom" constant="8" symbolic="YES" id="lb2-za-5Z9"/>
-                            <constraint firstItem="H9t-qp-3A3" firstAttribute="top" secondItem="XQX-EQ-2ft" secondAttribute="bottom" constant="8" symbolic="YES" id="nor-zG-MUw"/>
-                            <constraint firstItem="DkR-N7-WWP" firstAttribute="centerY" secondItem="OQF-Dl-rCm" secondAttribute="centerY" id="vDi-oe-plK"/>
+                            <constraint firstItem="DkR-N7-WWP" firstAttribute="leading" secondItem="OQF-Dl-rCm" secondAttribute="leadingMargin" id="wFJ-qf-e3p"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -295,13 +286,12 @@
                         <outlet property="annotateButton" destination="Z62-8L-IB7" id="tHE-uB-euf"/>
                         <outlet property="bottomToolBar" destination="ZXc-EZ-r3t" id="UxH-9v-rSN"/>
                         <outlet property="imageView" destination="DkR-N7-WWP" id="gTT-t4-Xri"/>
-                        <outlet property="titleField" destination="H9t-qp-3A3" id="jCR-9g-7RO"/>
                         <outlet property="undoButton" destination="ZlT-w8-wHo" id="x13-Pb-SxV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wE-hN-Tu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-906.39999999999998" y="163.26836581709148"/>
+            <point key="canvasLocation" x="-907.24637681159425" y="163.04347826086959"/>
         </scene>
     </scenes>
     <resources>

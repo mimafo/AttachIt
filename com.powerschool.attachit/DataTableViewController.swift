@@ -14,7 +14,8 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     //data properties
-    var attachData = AttachData.dummyAttachData()
+    //var attachData = AttachData.dummyAttachData()
+    var attachData: [AttachData]?
     var alertController: UIAlertController {
         let ac = UIAlertController(title: "Image Select", message: "Choose photo or camera?", preferredStyle: .actionSheet)
         let cameraButton = UIAlertAction(title: "Camera", style: .default, handler: { (action) -> Void in
@@ -48,6 +49,18 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
         self.selectedImage = nil
         self.addButton.isEnabled = false
         
+        //Network calls
+        if let attachType = self.currentAttachmentType {
+            AttachAPIContoller().getAttachDataList(attachType: attachType, completionHandler: { (dataList) in
+                performUIUpdatesOnMain {
+                    if let list = dataList {
+                        self.attachData = list
+                        self.tableView.reloadData()
+                    }
+                }
+            })
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,7 +79,10 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
 
     //MARK: UITableViewController Functions
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.attachData.count
+        if let list = self.attachData {
+            return list.count
+        }
+        return 0
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,25 +99,28 @@ class DataTableViewController: UITableViewController, UIImagePickerControllerDel
         }
         
         let realCell = cell!
-        let data = self.attachData[indexPath.row]
-
-        realCell.textLabel?.text = data.title
-        realCell.detailTextLabel?.text = data.detail
+        if let list = self.attachData {
+            let data = list[indexPath.row]
+            realCell.textLabel?.text = data.title
+            realCell.detailTextLabel?.text = data.detail
+        }
         
         return realCell
         
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = self.attachData[indexPath.row]
-        self.selectedAttachData = data
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .checkmark
-            if let oldCell = self.selectedCell {
-                oldCell.accessoryType = .none
+        if let list = self.attachData {
+            let data = list[indexPath.row]
+            self.selectedAttachData = data
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.accessoryType = .checkmark
+                if let oldCell = self.selectedCell {
+                    oldCell.accessoryType = .none
+                }
+                self.selectedCell = cell
+                self.addButton.isEnabled = true
             }
-            self.selectedCell = cell
-            self.addButton.isEnabled = true
         }
     }
     
